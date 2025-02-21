@@ -41,7 +41,7 @@ async function updateStack(url, apikey, endpoint, stack) {
                 "StackFileContent": stack_file.data.StackFileContent,
                 "Env": stack_env.data.Env,
                 "Prune": false,
-                "PullImage": false
+                "PullImage": true
             }),
             httpsAgent: new https.Agent({
                 rejectUnauthorized: false
