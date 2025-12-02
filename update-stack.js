@@ -40,7 +40,7 @@ async function updateStack(url, apikey, endpoint, stack) {
             data: JSON.stringify({
                 "StackFileContent": stack_file.data.StackFileContent,
                 "Env": stack_env.data.Env,
-                "Prune": false,
+                "Prune": true,
                 "PullImage": true
             }),
             httpsAgent: new https.Agent({
