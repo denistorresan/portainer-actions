@@ -53,6 +53,7 @@ async function updateStack(url, apikey, endpoint, stack) {
     }
     catch (error) {
         console.log(error);
+        throw error;
     }
 }
 
@@ -68,4 +69,6 @@ var opts = stdio.getopt({
     'stack':     {args: 1, description: 'Portainer Stack', required: true, default: process.env.STACK},
 });
 
-updateStack( opts.url, opts.apikey, opts.endpoint, opts.stack );
+updateStack( opts.url, opts.apikey, opts.endpoint, opts.stack )
+    .then(() => process.exit(0))
+    .catch(() => process.exit(1));
